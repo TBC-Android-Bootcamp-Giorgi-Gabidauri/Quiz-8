@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Quiz 8</string>
+    <string name="item_price">12$</string>
+    <string name="item_description">Belt suit blazer</string>
+    <string name="purchase">Purchase</string>
+    <string name="my_items">my items</string>
+    <string name="not_found_items">Not Found Items</string>
+</resources>

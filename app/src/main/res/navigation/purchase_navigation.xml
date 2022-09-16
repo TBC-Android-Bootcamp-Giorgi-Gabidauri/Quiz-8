@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/purchase_navigation"
+    app:startDestination="@id/purchaseFragment">
+
+    <fragment
+        android:id="@+id/purchaseFragment"
+        android:name="com.gabo.quiz8.ui.purchase.PurchaseFragment"
+        android:label="fragment_purchase"
+        tools:layout="@layout/fragment_purchase" >
+        <action
+            android:id="@+id/action_purchaseFragment_to_myItemsFragment"
+            app:destination="@id/myItemsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myItemsFragment"
+        android:name="com.gabo.quiz8.ui.my_items.MyItemsFragment"
+        android:label="fragment_my_items"
+        tools:layout="@layout/fragment_my_items" />
+</navigation>
