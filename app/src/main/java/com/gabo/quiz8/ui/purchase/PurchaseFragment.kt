@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gabo.quiz8.PurchaseAdapter
 import com.gabo.quiz8.base.BaseFragment
 import com.gabo.quiz8.common.extension.launchStarted
@@ -41,7 +42,7 @@ class PurchaseFragment : BaseFragment<FragmentPurchaseBinding>(FragmentPurchaseB
     private fun setupAdapters() {
         purchaseAdapter = PurchaseAdapter { }
         binding.rvPurchaseItems.adapter = purchaseAdapter
-        binding.rvPurchaseItems.layoutManager = GridLayoutManager(requireContext(), 2)
+        binding.rvPurchaseItems.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
     }
     private fun setupListeners(){
         binding.root.setOnRefreshListener {
