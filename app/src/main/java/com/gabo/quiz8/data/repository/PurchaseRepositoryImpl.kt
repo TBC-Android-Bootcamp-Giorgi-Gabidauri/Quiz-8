@@ -8,6 +8,8 @@ import com.gabo.quiz8.data.local.dto.PurchaseItemDto
 import com.gabo.quiz8.data.local.dto.toModel
 import com.gabo.quiz8.domain.models.PurchaseItemModel
 import com.gabo.quiz8.domain.repository.PurchaseRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 class PurchaseRepositoryImpl @Inject constructor(
@@ -32,13 +34,31 @@ class PurchaseRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getPurchaseItemsFromRoom(): List<PurchaseItemModel> {
-        return database.getMoviesDao.getItems().map { it.toModel() }
+    override suspend fun getPurchaseItemsFromRoom(): Flow<List<PurchaseItemModel>> {
+        return database.getPurchaseDao.getItems().map { it.map { it.toModel() } }
     }
 
     override suspend fun savePurchaseItems(list: List<PurchaseItemDto>) {
-        list.forEach { database.getMoviesDao.saveItem(it) }
+        list.forEach { database.getPurchaseDao.saveItem(it) }
     }
 
+    override suspend fun saveItem(item: PurchaseItemDto) {
+        database.getPurchaseDao.saveItem(item)
+    }
 
+    override suspend fun updateBoughtState(bought: Boolean, title: String){
+        database.getPurchaseDao.updateBoughtState(bought, title)
+    }
+
+    override suspend fun deleteItem(cover: String) {
+        database.getPurchaseDao.deleteItem(cover)
+    }
+
+    override suspend fun exist(cover: String): Boolean {
+        return database.getPurchaseDao.itemExists(cover)
+    }
+
+    override suspend fun getBoughtItems(): Flow<List<PurchaseItemModel>> {
+        return database.getPurchaseDao.getBoughtItems().map { it.map { it.toModel() } }
+    }
 }

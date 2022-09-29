@@ -3,12 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/drawable/ic_buy.xml" value="0.221" />
+        <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/drawable/ic_heart.xml" value="0.221" />
         <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/drawable/ic_home.xml" value="0.1285" />
         <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/drawable/ic_my_items.xml" value="0.1285" />
         <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/layout/activity_main.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/layout/fragment_my_items.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/layout/fragment_purchase.xml" value="0.22447916666666667" />
-        <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/layout/purchase_item.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/layout/purchase_item.xml" value="0.5" />
         <entry key="..\:/Users/giorg/AndroidStudioProjects/Quiz8/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22447916666666667" />
       </map>
     </option>

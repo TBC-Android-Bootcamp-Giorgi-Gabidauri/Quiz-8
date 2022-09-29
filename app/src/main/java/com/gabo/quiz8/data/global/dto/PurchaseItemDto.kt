@@ -7,8 +7,7 @@ data class PurchaseItemDto(
     val cover: String,
     val price: String,
     val liked: Boolean
-) {
-}
+)
 
 fun PurchaseItemDto.toModel() = PurchaseItemModel(
     title, cover, price, liked

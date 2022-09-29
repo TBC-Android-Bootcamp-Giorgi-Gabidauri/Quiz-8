@@ -10,7 +10,8 @@ import javax.inject.Inject
 
 class GetPurchaseItemsUseCase @Inject constructor(private val repository: PurchaseRepository) :
     BaseUseCase<Unit, Flow<ResponseHandler<List<PurchaseItemModel>>>> {
-    override suspend fun invoke(params: Unit): Flow<ResponseHandler<List<PurchaseItemModel>>> = flow{
-        emit(repository.getPurchaseItems())
-    }
+    override suspend fun invoke(params: Unit): Flow<ResponseHandler<List<PurchaseItemModel>>> =
+        flow {
+            emit(repository.getPurchaseItems())
+        }
 }

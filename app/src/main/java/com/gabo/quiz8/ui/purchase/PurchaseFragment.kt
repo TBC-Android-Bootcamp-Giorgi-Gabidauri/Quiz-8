@@ -1,9 +1,9 @@
 package com.gabo.quiz8.ui.purchase
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.gabo.quiz8.PurchaseAdapter
 import com.gabo.quiz8.base.BaseFragment
@@ -39,8 +39,18 @@ class PurchaseFragment : BaseFragment<FragmentPurchaseBinding>(FragmentPurchaseB
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun setupAdapters() {
-        purchaseAdapter = PurchaseAdapter { }
+        purchaseAdapter = PurchaseAdapter {model, imageView ->
+            viewLifecycleOwner.launchStarted {
+                if (model.bought){
+                    viewModel.buyItem(false,model.title)
+                } else{
+                    viewModel.buyItem(true, model.title)
+                }
+                purchaseAdapter.notifyDataSetChanged()
+            }
+        }
         binding.rvPurchaseItems.adapter = purchaseAdapter
         binding.rvPurchaseItems.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
     }

@@ -1,15 +1,16 @@
 package com.gabo.quiz8
 
+import android.annotation.SuppressLint
+import android.graphics.Color
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
+import com.gabo.quiz8.common.extension.loadImage
 import com.gabo.quiz8.databinding.PurchaseItemBinding
 import com.gabo.quiz8.domain.models.PurchaseItemModel
 
-import android.annotation.SuppressLint
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
-import com.gabo.quiz8.common.extension.loadImage
-
-class PurchaseAdapter(private val click: (PurchaseItemModel) -> Unit) :
+class PurchaseAdapter(private val click: (PurchaseItemModel, ImageView) -> Unit) :
     RecyclerView.Adapter<PurchaseAdapter.PurchaseVH>() {
     private var list: List<PurchaseItemModel> = emptyList()
 
@@ -19,14 +20,19 @@ class PurchaseAdapter(private val click: (PurchaseItemModel) -> Unit) :
         notifyDataSetChanged()
     }
 
-    inner class PurchaseVH(private val binding: PurchaseItemBinding) : RecyclerView.ViewHolder(binding.root) {
-
-        fun bind(model: PurchaseItemModel, click: (PurchaseItemModel) -> Unit) {
-            with(binding){
+    inner class PurchaseVH(private val binding: PurchaseItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(model: PurchaseItemModel, click: (PurchaseItemModel, ImageView) -> Unit) {
+            with(binding) {
                 ivPhoto.loadImage(model.cover)
                 tvPrice.text = model.price
                 tvTitle.text = model.title
-                itemView.setOnClickListener { click(model) }
+                if (!model.bought) {
+                    ivHeart.setColorFilter(Color.WHITE)
+                } else {
+                    ivHeart.setColorFilter(R.color.black)
+                }
+                itemView.setOnClickListener { click(model, ivHeart) }
             }
         }
     }

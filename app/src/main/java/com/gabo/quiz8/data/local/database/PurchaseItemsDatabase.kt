@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import com.gabo.quiz8.data.local.dao.PurchaseDao
 import com.gabo.quiz8.data.local.dto.PurchaseItemDto
 
-@Database(entities = [PurchaseItemDto::class], version = 4)
+@Database(entities = [PurchaseItemDto::class], version = 8 )
 abstract class PurchaseItemsDatabase : RoomDatabase() {
-    abstract val getMoviesDao: PurchaseDao
+    abstract val getPurchaseDao: PurchaseDao
 }

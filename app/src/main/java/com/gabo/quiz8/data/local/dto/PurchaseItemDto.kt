@@ -8,13 +8,13 @@ import com.gabo.quiz8.domain.models.PurchaseItemModel
 @Entity(tableName = TABLE_NAME)
 data class PurchaseItemDto(
     @PrimaryKey(autoGenerate = false)
-    val id: Int?,
     val title: String,
     val cover: String,
     val price: String,
-    val liked: Boolean
+    val liked: Boolean,
+    var bought: Boolean = false
 )
 
 fun PurchaseItemDto.toModel() = PurchaseItemModel(
-    title, cover, price, liked
+    title, cover, price, liked, bought
 )

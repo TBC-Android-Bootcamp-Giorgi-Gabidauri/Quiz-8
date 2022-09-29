@@ -1,7 +1,6 @@
 package com.gabo.quiz8.di
 
 import android.app.Application
-import androidx.room.Insert
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.gabo.quiz8.constants.DATABASE_NAME
@@ -29,6 +28,6 @@ object LocalStorageModule {
     @Provides
     @Singleton
     fun provideDao(dataBase: PurchaseItemsDatabase): PurchaseDao {
-        return dataBase.getMoviesDao
+        return dataBase.getPurchaseDao
     }
 }

@@ -6,9 +6,9 @@ import com.gabo.quiz8.domain.repository.PurchaseRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetPurchaseItemsFromRoomUseCase @Inject constructor(private val repository: PurchaseRepository) :
+class GetBoughtItemsUseCase @Inject constructor(private val repository: PurchaseRepository) :
     BaseUseCase<Unit, Flow<List<PurchaseItemModel>>> {
     override suspend fun invoke(params: Unit): Flow<List<PurchaseItemModel>> {
-        return repository.getPurchaseItemsFromRoom()
+        return repository.getBoughtItems()
     }
 }

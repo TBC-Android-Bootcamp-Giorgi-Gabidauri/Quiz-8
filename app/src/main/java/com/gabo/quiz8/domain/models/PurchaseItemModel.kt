@@ -6,9 +6,10 @@ data class PurchaseItemModel(
     val title: String,
     val cover: String,
     val price: String,
-    val liked: Boolean
+    val liked: Boolean,
+    var bought: Boolean = false
 )
 
 fun PurchaseItemModel.toRoomDto() = PurchaseItemDto(
-    null, title, cover, price, liked
+     title, cover, price, liked, bought
 )
